@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @document.title %>
+</p>
+
+
+<p>
+  <strong>Link:</strong>
+  <%= @document.link %>
+</p>
+<p>
+  <strong>Node:</strong>
+  <%= @document.node %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

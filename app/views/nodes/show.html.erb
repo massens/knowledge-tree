@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @node.title %>
+</p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Documents</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @node.documents.each do |document| %>
+      <tr>
+        <td><%= link_to "#{document.title}", "http://#{document.link}" %></td>
+        <td><%= link_to 'Show', document %></td>
+        <td><%= link_to 'Edit', edit_document_path(document) %></td>
+        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Edit', edit_node_path(@node) %> |
+<%= link_to 'New Node', new_node_path(@node) %> | 
+<%= link_to 'New Document', new_document_path(@node) %> | 
+<%= link_to 'Back', nodes_path %>
