@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Nodes</h1>
+<h1>Listing Trees</h1>
 
 
 <ul class="tree">
-  <li>
-    <span>Root</span>
-    <ul>
+
       <% previous_level = 0 %>
       <% current_user.nodes.walk_tree do |node, level| %>
 
@@ -32,8 +30,7 @@
       <% previous_level.times do %>
         </li></ul>
       <% end %>
-    </ul>
-  </li>
+
 </ul>
 <br>
 <%= link_to 'New Node', new_node_path %>

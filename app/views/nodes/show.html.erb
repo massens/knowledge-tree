@@ -18,7 +18,7 @@
   <tbody>
     <% @node.documents.each do |document| %>
       <tr>
-        <td><%= link_to "#{document.title}", "http://#{document.link}" %></td>
+        <td><%= link_to "#{document.title}", "https://#{document.link.sub(/^https?\:\/\/(www.)?/,'')}" %></td>
         <td><%= link_to 'Show', document %></td>
         <td><%= link_to 'Edit', edit_document_path(document) %></td>
         <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,6 +30,7 @@
 
 
 <%= link_to 'Edit', edit_node_path(@node) %> |
-<%= link_to 'New Node', new_node_path(@node) %> | 
+<%= link_to 'New Branch', new_node_path(@node) %> | 
 <%= link_to 'New Document', new_document_path(@node) %> | 
+<%= link_to 'Delete', @node, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', nodes_path %>
