@@ -2,27 +2,39 @@
 
 <h1>Listing Nodes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% current_user.nodes.walk_tree do |node, level| %>
-      <tr>
-        <td><%= link_to "#{'-'*level}#{node.title}", node_path(node) %></td>
-        <td><%= link_to 'Show', node %></td>
-        <td><%= link_to 'Edit', edit_node_path(node) %></td>
-        <td><%= link_to 'Destroy', node, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="tree">
+  <li>
+    <span>Root</span>
+    <ul>
+      <% previous_level = 0 %>
+      <% current_user.nodes.walk_tree do |node, level| %>
 
+        <% if level < previous_level %>
+          <!-- Up a level -->
+          <% (previous_level-level).times do %>
+            </li></ul>
+          <% end %>
+        <% end %>
+
+        <li> 
+        <span><%= link_to "#{node.title}", node_path(node) %></span>
+
+        <% if node.children.any? %>
+          <ul>
+        <% else %>
+          </li>
+        <% end %>
+
+        <% previous_level = level %>
+      <% end %>
+
+      <% previous_level.times do %>
+        </li></ul>
+      <% end %>
+    </ul>
+  </li>
+</ul>
 <br>
-
 <%= link_to 'New Node', new_node_path %>
 

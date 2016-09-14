@@ -4,5 +4,4 @@ class Node < ActiveRecord::Base
 	acts_as_tree
 	extend ActsAsTree::TreeWalker
 
-
 end
