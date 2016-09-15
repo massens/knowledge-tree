@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Trees</h1>
 
 
-<ul class="tree">
+<ul class="tree" style="display: inline-block; width: auto; margin-top: 50px;">
 
       <% previous_level = 0 %>
       <% current_user.nodes.walk_tree do |node, level| %>
@@ -16,7 +15,7 @@
         <% end %>
 
         <li> 
-        <span><%= link_to "#{node.title}", node_path(node) %></span>
+        <span><%= link_to "#{node.title}", edit_node_path(node) %></span>
 
         <% if node.children.any? %>
           <ul>
@@ -33,5 +32,5 @@
 
 </ul>
 <br>
-<%= link_to 'New Node', new_node_path %>
+<%= link_to '+ New Tree', new_node_path, {class: 'fav-button'} %>
 

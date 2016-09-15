@@ -12,4 +12,17 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
  */
+
+.fav-button{
+ position: fixed;
+ bottom: 10px;
+ right: 10px;
+}
+
+#notice{
+	position: fixed;
+	bottom: 40px;
+	width: 100%;
+}
