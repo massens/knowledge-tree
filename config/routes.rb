@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
   resources :documents
   resources :documents
   resources :nodes
   devise_for :users
+  resources :images, only: [:create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

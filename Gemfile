@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'acts_as_tree', '~> 2.4'
 gem 'trix'
-
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 
 gem 'rails', '4.2.6'
 gem 'sqlite3'
