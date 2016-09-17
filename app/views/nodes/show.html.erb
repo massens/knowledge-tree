@@ -2,35 +2,13 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @node.title %>
+    <%= @node.title %>
+    <%= @node.body %>
 </p>
 
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Documents</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @node.documents.each do |document| %>
-      <tr>
-        <td><%= link_to "#{document.title}", "https://#{document.link.sub(/^https?\:\/\/(www.)?/,'')}" %></td>
-        <td><%= link_to 'Show', document %></td>
-        <td><%= link_to 'Edit', edit_document_path(document) %></td>
-        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+<div>hello<br><br><a href="/attachments/store/4f4a24fffa75e73718ad58ffd1b46ecb65d099f3c94b8a849b596aff312a/Screen+Shot+2016-09-16+at+10.55.14.png" data-trix-attachment="{&quot;contentType&quot;:&quot;image/png&quot;,&quot;filename&quot;:&quot;Screen Shot 2016-09-16 at 10.55.14.png&quot;,&quot;filesize&quot;:335804,&quot;height&quot;:481,&quot;href&quot;:&quot;/attachments/store/4f4a24fffa75e73718ad58ffd1b46ecb65d099f3c94b8a849b596aff312a/Screen+Shot+2016-09-16+at+10.55.14.png&quot;,&quot;image_id&quot;:&quot;4f4a24fffa75e73718ad58ffd1b46ecb65d099f3c94b8a849b596aff312a&quot;,&quot;url&quot;:&quot;/attachments/store/4f4a24fffa75e73718ad58ffd1b46ecb65d099f3c94b8a849b596aff312a/Screen+Shot+2016-09-16+at+10.55.14.png&quot;,&quot;width&quot;:1164}" data-trix-content-type="image/png"><figure class="attachment attachment-preview png"><img src="/attachments/store/4f4a24fffa75e73718ad58ffd1b46ecb65d099f3c94b8a849b596aff312a/Screen+Shot+2016-09-16+at+10.55.14.png" width="1164" height="481"><figcaption class="caption">Screen Shot 2016-09-16 at 10.55.14.png <span class="size">327.93 KB</span></figcaption></figure></a></div>  
 
 <%= link_to 'Edit', edit_node_path(@node) %> |
 <%= link_to 'New Branch', new_node_path(@node) %> | 
-<%= link_to 'New Document', new_document_path(@node) %> | 
 <%= link_to 'Delete', @node, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', nodes_path %>

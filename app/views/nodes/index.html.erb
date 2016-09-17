@@ -15,7 +15,11 @@
         <% end %>
 
         <li> 
-        <span><%= link_to "#{node.title}", edit_node_path(node) %></span>
+        <span style="min-width: 120px;"><%= link_to "#{node.title}", edit_node_path(node) %></span>
+
+        <% unless node.body.nil? or node.body.empty? %>
+         📦 
+        <% end %>
 
         <% if node.children.any? %>
           <ul>

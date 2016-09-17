@@ -6,17 +6,16 @@ class ImagesController < ApplicationController
     @image.save
  
     respond_to do |format|
-      byebug
       format.json { render :json => { url: Refile.attachment_url(@image, :image), image_id: @image.image_id } }
     end
   end
  
   def destroy
-    @image = Image.find_by(image_id: params[:id])
-    @image.destroy
-    respond_to do |format|
-      format.json { render :json => { status: :ok } }
-    end
+    # @image = Image.find_by(image_id: params[:id])
+    # @image.destroy
+    # respond_to do |format|
+    #   format.json { render :json => { status: :ok } }
+    # end
   end
   
   private

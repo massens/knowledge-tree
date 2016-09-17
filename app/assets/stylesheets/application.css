@@ -15,14 +15,67 @@
  *= require trix
  */
 
-.fav-button{
- position: fixed;
- bottom: 10px;
- right: 10px;
+
+trix-editor{
+	background: white !important;
+}
+body{
+	background: #f5efe6;
 }
 
-#notice{
-	position: fixed;
-	bottom: 40px;
-	width: 100%;
-}
+ .fav-button{
+ 	position: fixed;
+ 	bottom: 10px;
+ 	right: 10px;
+ }
+
+ #notice{
+ 	position: fixed;
+ 	bottom: 40px;
+ 	width: 100%;
+ }
+
+ .node-title{
+ 	border: none;
+ 	text-align: center;
+ 	font-size: inherit;
+ 	width: 100%;
+ 	background: #f5efe6;
+
+ }
+
+ .btn-success{
+ 	background-color: #3FAD46 !important;
+ 	/*color: #fff;*/
+ 	border-width: 0;
+ 	border-bottom-width: 3px;
+ 	border-bottom-color: rgba(0,0,0,0.15);
+
+ }
+ .btn:visited {
+     color: #06c;
+ }
+
+ .btn{
+ 	-webkit-border-radius: 4px;
+ 	-moz-border-radius: 4px;
+ 	-o-border-radius: 4px;
+ 	border-radius: 4px;
+ 	-webkit-transition: all 0.2s ease;
+ 	-moz-transition: all 0.2s ease;
+ 	-ms-transition: all 0.2s ease;
+ 	transition: all 0.2s ease;
+ 	background-color: #fff;
+ 	border: 1px solid rgba(0,0,0,0.15);
+ 	border-bottom-width: 3px;
+ 	color: #FFF;
+ 	font-family: "Fakt Soft", "Proxima Nova", "Helvetica", "Lucida Grande", sans-serif;
+ 	font-size: 1em;
+ 	font-weight: bold;
+ 	padding: 0.5em 1em;
+ 	text-decoration: none;
+ 	text-align: center;
+ 	line-height: normal;
+ 	-webkit-appearance: none;
+ 	display: inline-block;
+ }

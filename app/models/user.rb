@@ -5,5 +5,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :nodes, dependent: :destroy
-  has_many :documents, dependent: :destroy
 end

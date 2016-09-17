@@ -18,9 +18,9 @@ class NodesController < ApplicationController
   # GET /nodes/new
   def new
     if params['format']
-      @node = Node.find(params['format']).children.create(user_id: current_user.id)
+      @node = Node.find(params['format']).children.create(user_id: current_user.id, title: 'New Node')
     else
-      @node = current_user.nodes.new
+      @node = current_user.nodes.new(title: 'New Node')
     end
   end
 
