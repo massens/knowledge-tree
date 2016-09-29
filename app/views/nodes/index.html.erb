@@ -5,7 +5,7 @@
 <ul class="tree" style="display: inline-block; width: auto; margin-top: 50px;">
 
       <% previous_level = 0 %>
-      <% current_user.nodes.walk_tree do |node, level| %>
+      <% @nodes.walk_tree do |node, level| %>
 
         <% if level < previous_level %>
           <!-- Up a level -->

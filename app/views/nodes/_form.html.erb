@@ -16,10 +16,15 @@
 <%= f.trix_editor :body %>
 </div>
 
-<div id="select_change_branch" style="margin-bottom: 8px;">
-  Parent:
-  <%= f.collection_select(:parent_id, Node.all, :id, :title) %>
-</div>
+<% byebug %>
+
+<% if params[:action] == 'edit' %>
+  <div id="select_change_branch" style="margin-bottom: 8px;">
+    Parent:
+    <%= f.collection_select(:parent_id, Node.all, :id, :title) %>
+  </div>
+<% end %>
+
 <div class="actions">
   <%= f.submit 'Save', {class: 'btn-success btn'}%>
 </div>
