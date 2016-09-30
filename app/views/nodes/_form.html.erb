@@ -1,5 +1,4 @@
  <%= form_for(@node) do |f| %>
- <% byebug %>
 <% if @node.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@node.errors.count, "error") %> prohibited this node from being saved:</h2>
