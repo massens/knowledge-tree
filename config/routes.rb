@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :walls
   resources :nodes
   devise_for :users
   resources :images, only: [:create, :destroy]

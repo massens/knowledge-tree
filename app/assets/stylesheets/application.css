@@ -29,6 +29,10 @@ body{
  	right: 10px;
  }
 
+ .bottom-left-button{
+ 	float:left;
+ }
+
  #notice{
  	position: fixed;
  	bottom: 40px;
