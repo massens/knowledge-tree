@@ -5,14 +5,14 @@ class WallsController < ApplicationController
   # GET /walls.json
   def index
     @walls = Wall.all
-
   end
 
   # GET /walls/1
   # GET /walls/1.json
   def show
+    @current_wall = Wall.find(params['id'])
     @walls = current_user.walls
-    @nodes = current_user.nodes
+    @nodes = @current_wall.nodes
   end
 
   # GET /walls/new

@@ -2,7 +2,7 @@
 
 <h1>Listing Walls</h1>
 
-<table>
+<table style="text-align:center;">
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -12,6 +12,7 @@
   <tbody>
     <% @walls.each do |wall| %>
       <tr>
+        <td><%= link_to wall.name, wall %></td>
         <td><%= link_to 'Show', wall %></td>
         <td><%= link_to 'Edit', edit_wall_path(wall) %></td>
         <td><%= link_to 'Destroy', wall, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,4 +1,5 @@
-<%= form_for(@node) do |f| %>
+ <%= form_for(@node) do |f| %>
+ <% byebug %>
 <% if @node.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@node.errors.count, "error") %> prohibited this node from being saved:</h2>
@@ -19,9 +20,11 @@
 <% if params[:action] == 'edit' %>
   <div id="select_change_branch" style="margin-bottom: 8px;">
     Parent:
-    <%= f.collection_select(:parent_id, Node.all, :id, :title) %>
+    <%= f.collection_select(:parent_id, Node.all, :id, :title, :include_blank => true) %>
   </div>
 <% end %>
+
+<%= f.hidden_field :wall_id %> 
 
 <div class="actions">
   <%= f.submit 'Save', {class: 'btn-success btn'}%>

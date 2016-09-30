@@ -8,6 +8,7 @@ class NodesController < ApplicationController
   # GET /nodes.json
   def index
     @nodes = current_user.nodes
+    @walls = current_user.walls
   end
 
   # GET /nodes/1
@@ -20,7 +21,7 @@ class NodesController < ApplicationController
     if params['format']
       @node = Node.find(params['format']).children.create(user_id: current_user.id, title: 'New Node')
     else
-      @node = current_user.nodes.new(title: 'New Node')
+      @node = current_user.nodes.new(title: 'New Node', wall_id: params['wall'])
     end
   end
 
@@ -76,6 +77,6 @@ class NodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def node_params
-      params.require(:node).permit(:title, :body, :parent_id)
+      params.require(:node).permit(:title, :body, :parent_id, :wall_id)
     end
 end

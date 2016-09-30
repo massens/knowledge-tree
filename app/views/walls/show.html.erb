@@ -1,30 +1,51 @@
+
+<h1><%= @current_wall.name %></h1>
+
 <p id="notice"><%= notice %></p>
-<ul class="tree" style="display: inline-block; width: auto; margin-top: 50px;">
+<ul class="tree" style="display: inline-block; width: auto; margin-top: 25px;">
 
       <% previous_level = 0 %>
-      <% @nodes.walk_tree do |node, level| %>
-
-        <% if level < previous_level %>
-          <!-- Up a level -->
-          <% (previous_level-level).times do %>
-            </li></ul>
-          <% end %>
-        <% end %>
+      <% @nodes.each do |root| %>
 
         <li> 
-        <span style="min-width: 120px;"><%= link_to "#{node.title}", edit_node_path(node) %></span>
+        <span style="min-width: 120px;"><%= link_to "#{root.title}", edit_node_path(root) %></span>
 
-        <% unless node.body.nil? or node.body.empty? %>
+        <% unless root.body.nil? or root.body.empty? %>
          📦 
         <% end %>
 
-        <% if node.children.any? %>
+        <% if root.children.any? %>
           <ul>
         <% else %>
           </li>
         <% end %>
 
-        <% previous_level = level %>
+
+        <% root.walk_tree do |node, level| %>
+
+          <% if level < previous_level %>
+            <!-- Up a level -->
+            <% (previous_level-level).times do %>
+              </li></ul>
+            <% end %>
+          <% end %>
+
+          <li> 
+          <span style="min-width: 120px;"><%= link_to "#{node.title}", edit_node_path(node) %></span>
+
+          <% unless node.body.nil? or node.body.empty? %>
+           📦 
+          <% end %>
+
+          <% if node.children.any? %>
+            <ul>
+          <% else %>
+            </li>
+          <% end %>
+
+          <% previous_level = level %>
+        <% end %>
+
       <% end %>
 
       <% previous_level.times do %>
@@ -33,13 +54,13 @@
 
 </ul>
 <br>
-<%= link_to '+ New Tree', new_node_path, {class: 'fav-button'} %>
+<%= link_to '+ New Tree', new_node_path(:wall => @current_wall), {class: 'fav-button'} %>
 <div style="position:fixed; bottom:10px; left:10px;">
+  <%= link_to '+ New Wall', new_wall_path, {class: 'bottom-left-button'} %>
   <% if !@walls.blank? %>
     <% for wall in @walls %>
+      <div style="float:left;"> &nbsp;| &nbsp;</div>
       <%= link_to wall.name, wall_path(wall), {class: 'bottom-left-button'} %>
-      <div style="float:left;"> | </div>
     <% end %>
   <% end %>
-  <%= link_to '+ New Wall', new_wall_path, {class: 'bottom-left-button'} %>
 </div>

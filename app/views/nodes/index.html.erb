@@ -37,4 +37,13 @@
 </ul>
 <br>
 <%= link_to '+ New Tree', new_node_path, {class: 'fav-button'} %>
+<div style="position:fixed; bottom:10px; left:10px;">
+  <%= link_to '+ New Wall', new_wall_path, {class: 'bottom-left-button'} %>
+  <% if !@walls.blank? %>
+    <% for wall in @walls %>
+      <div style="float:left;"> &nbsp;| &nbsp;</div>
+      <%= link_to wall.name, wall_path(wall), {class: 'bottom-left-button'} %>
+    <% end %>
+  <% end %>
+</div>
 
