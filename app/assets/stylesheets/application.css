@@ -83,3 +83,13 @@ body{
  	-webkit-appearance: none;
  	display: inline-block;
  }
+
+ .edit_node{
+ 	margin-top: 30px;
+ }
+
+ .button_groups{
+ 	position: fixed;
+ 	width: 100%;
+ 	top: 10px;
+ }
