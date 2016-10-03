@@ -86,10 +86,12 @@ body{
 
  .edit_node{
  	margin-top: 30px;
+ 	max-width: 800px;
+ 	margin: auto;
  }
 
  .button_groups{
  	position: fixed;
- 	width: 100%;
+ 	/*width: 100%;*/
  	top: 10px;
  }
