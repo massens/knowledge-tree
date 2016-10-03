@@ -91,6 +91,7 @@ body{
  }
 
  .button_groups{
+ 	z-index:1;
  	position: fixed;
  	/*width: 100%;*/
  	top: 10px;

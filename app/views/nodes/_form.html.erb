@@ -13,7 +13,7 @@
 
 <h1> <%= f.text_field :title, {class: 'node-title'} %></h1>
 <div class="field" style="text-align:left;">
-<%= f.trix_editor :body %>
+<%= f.trix_editor :body, :class => "trix-content"%>
 </div>
 
 <% if params[:action] == 'edit' %>
