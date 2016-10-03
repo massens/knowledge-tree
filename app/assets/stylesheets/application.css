@@ -16,12 +16,12 @@
  */
 
 
-trix-editor{
-	background: white !important;
-}
-body{
-	background: #f5efe6;
-}
+ trix-editor{
+ 	background: white !important;
+ }
+ body{
+ 	background: #f5efe6;
+ }
 
  .fav-button{
  	position: fixed;
@@ -57,7 +57,7 @@ body{
 
  }
  .btn:visited {
-     color: #06c;
+ 	color: #06c;
  }
 
  .btn{
@@ -95,4 +95,12 @@ body{
  	position: fixed;
  	/*width: 100%;*/
  	top: 10px;
+ }
+
+ .trix-content pre {
+ 	font-family: inherit !important;
+ 	font-size: 14px !important;
+ 	background-color: rgba(12, 197, 24, 0.53) !important;
+ 	border-radius: 3px;
+
  }
