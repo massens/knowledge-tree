@@ -36,7 +36,7 @@ class NodesController < ApplicationController
 
     respond_to do |format|
       if @node.save
-        format.html { redirect_to root_path, notice: 'Node was successfully created.' }
+        format.html { redirect_to wall_or_root_path(@node), notice: 'Node was successfully created.' }
         format.json { render :show, status: :created, location: @node }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class NodesController < ApplicationController
   def update
     respond_to do |format|
       if @node.update(node_params)
-        format.html { redirect_to root_path, notice: 'Node was successfully updated.' }
+        format.html { redirect_to wall_or_root_path(@node), notice: 'Node was successfully updated.' }
         format.json { render :show, status: :ok, location: @node }
       else
         format.html { render :edit }
@@ -70,6 +70,16 @@ class NodesController < ApplicationController
   end
 
   private
+
+    # Return wall_path of the root node, or root_path if there is no wall
+    def wall_or_root_path(node)
+      return_path = if wall = node.root.wall
+                      wall_path(wall)
+                    else                
+                      root_path
+                    end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_node
       @node = Node.find(params[:id])
