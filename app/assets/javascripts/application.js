@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require trix
 //= require_tree .
+
+// Fades out notices
+$(function() {
+   $('#notice').delay(500).fadeIn('normal', function() {
+      $(this).delay(2500).fadeOut();
+   });
+});
