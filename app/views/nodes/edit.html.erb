@@ -4,7 +4,19 @@
 <%= link_to 'Back', nodes_path %> |
 <a href="#" id="btn_change_branch">Change Parent</a> &#x1F474; |
 <%= link_to 'New Child', new_node_path(@node) %> &#x1F476; | 
+<a href="#" id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)">Share 🔗</a> |
 <%= link_to 'Delete', @node, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+
+
+<script>
+  function copyToClipboard(text) {
+  	var link = '<%=@node.user.share_link(request.original_url) %>'
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", link);
+  }
+</script>
+
 
 
 <script type="text/javascript">

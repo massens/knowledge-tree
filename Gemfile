@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem 'simple_token_authentication', '~> 1.12'
 gem 'acts_as_tree', '~> 2.4'
 gem 'trix'
 gem "refile", require: "refile/rails"

@@ -1,5 +1,7 @@
 
-<h1><%= @current_wall.name %></h1>
+<h1><%= @current_wall.name %> <a href='#' style="background:none; text-decoration:none;font-size: 20px;opacity: 0.5;
+;
+" id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)">🔗</a></h1>
 
 <p id="notice"><%= notice %></p>
 <ul class="tree" style="display: inline-block; width: auto; margin-top: 25px;">
@@ -64,3 +66,10 @@
     <% end %>
   <% end %>
 </div>
+
+<script>
+  function copyToClipboard(text) {
+    var link = '<%=@wall.user.share_link(request.original_url) %>'
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", link);
+  }
+</script>

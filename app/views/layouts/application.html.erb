@@ -5,6 +5,7 @@
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 
@@ -161,6 +162,7 @@
 <body style="">
 	<div class="header" style="height:20px">
 		<div id="login_user_status" style="float:right;">
+
 			<% if user_signed_in? %> 
 			<%= current_user.email  %>  
 			| 
@@ -173,7 +175,11 @@
 			<% end %> 
 		</div>
 		<div style="float:left;">
-			<%= link_to "🏡  Home", root_path %>
+			<%= link_to "🏡  Home", root_path %> 
+			<% if @current_wall %>
+				> 
+				<%= link_to @current_wall.name, wall_path(@current_wall) %>
+			<% end -%>
 		</div>
 	</div>
 

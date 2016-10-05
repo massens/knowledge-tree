@@ -24,9 +24,24 @@
 
  }
 
- figure.attachment{
- 	background: white;
+ trix-editor .attachment {
+   position: relative;
+/*   float: left;
+*/   width: 100%;
+   margin: 10px 10px 10px 0;
+   padding: 0;
+   color: #666;
+   font-size: 13px;
+   background: white;
+   text-align: center;
  }
+ .trix-content .attachment .caption {
+     display: none !important;
+ }
+
+
+
+
 
  body{
  	background: #f5efe6;
@@ -113,7 +128,14 @@
  	top: 10px;
  	left: 0px;
  	right: 0px;
- 	margin: 0px 70px;
+ 	margin: 0px 150px;
+ }
+
+ .share-button{
+ 	position: absolute;
+ 	font-size: 14px;
+ 	margin: 4px;
+ 	opacity: 0.4;
  }
 
  .trix-content pre {

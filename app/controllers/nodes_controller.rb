@@ -1,7 +1,6 @@
 class NodesController < ApplicationController
   before_action :set_node, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-
+  acts_as_token_authentication_handler_for User, only: [:new, :create, :update, :destroy, :index] 
 
 
   # GET /nodes
@@ -83,6 +82,7 @@ class NodesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_node
       @node = Node.find(params[:id])
+      @current_wall = @node.root.wall
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

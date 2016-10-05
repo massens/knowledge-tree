@@ -1,5 +1,7 @@
 class WallsController < ApplicationController
   before_action :set_wall, only: [:show, :edit, :update, :destroy]
+  acts_as_token_authentication_handler_for User, except: [:show] 
+
 
   # GET /walls
   # GET /walls.json
@@ -11,7 +13,9 @@ class WallsController < ApplicationController
   # GET /walls/1.json
   def show
     @current_wall = Wall.find(params['id'])
-    @walls = current_user.walls
+
+    @walls = user_walls
+        
     @nodes = @current_wall.nodes
   end
 
@@ -73,5 +77,15 @@ class WallsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def wall_params
       params.require(:wall).permit(:name)
+    end
+
+    # This method gets the user walls even if the user hasn't signed
+    # in because is a guest
+    def user_walls
+      if current_user
+        @walls = current_user.walls
+      elsif email = params['user_email']
+        @walls = User.find_by(email: email).walls
+      end
     end
 end
